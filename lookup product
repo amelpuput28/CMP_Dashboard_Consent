@@ -1,0 +1,28 @@
+select distinct account_type, sub_category, product_name
+from ACL_DATALAKE.MART_DPK
+WHERE AS_OF_DATE = '2025-07-31'
+order by 1,2
+
+select * from ACL_DATALAKE.MART_LOAN
+
+ACL_DATALAKE.MART_CUSTOMER_CONSENT_ALL (summary)
+acl_datalake.mart_customer_consent_icons (detail)
+
+select * from prd_utl_datalake.lookup_product_tabungan
+select * from prd_utl_datalake.lookup_product
+select * from dm_funding.funding
+select * from dm_lending.lending
+
+select distinct cust_type, account_type, sub_category, product_name from dm_funding.funding
+--select * from dm_funding.funding
+where as_of_date = '2025-08-27'
+and cust_type_code = '01'
+--and product_name = 'GIRO TDK HIT BBB PERUSAHAAN'
+--and cif_key = 9201673280
+order by 1,2,3
+
+select distinct cust_type, account_type, sub_category, product_name from dm_lending.lending
+where as_of_date = '2025-08-27'
+and cust_type_code = '01'
+--and cif_key = 9201673280
+order by 1,2,3

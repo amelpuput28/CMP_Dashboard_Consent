@@ -26,3 +26,24 @@ where as_of_date = '2025-08-27'
 and cust_type_code = '01'
 --and cif_key = 9201673280
 order by 1,2,3
+
+--final script
+WITH baseline AS (
+select cif_key,id_number,account_type,sub_category,currency,product_name,group_product
+from PRD_DB_SBX_IND.DASH_DPK_DETAIL_REVAMP_v3
+where as_of_date = '2025-08-28'
+)
+
+/*select consent.cif_key, base.id_number, base.account_type, base.sub_category, base.product_name, base.group_product
+from acl_datalake.mart_customer_consent_icons consent
+left join baseline base
+on consent.cif_key = base.cif_key
+where consent.as_of_date = '2025-08-28'
+and consent.cif_key = 9201673280*/
+
+select distinct consent.as_of_date, base.account_type, base.sub_category, base.currency, base.product_name, base.group_product
+from acl_datalake.mart_customer_consent_icons consent
+left join baseline base
+on consent.cif_key = base.cif_key
+where consent.as_of_date = '2025-08-28'
+order by 1,2,3,4

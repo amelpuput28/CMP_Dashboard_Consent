@@ -47,3 +47,11 @@ left join baseline base
 on consent.cif_key = base.cif_key
 where consent.as_of_date = '2025-08-28'
 order by 1,2,3,4
+
+/*select * from acl_datalake.mart_customer_consent_icons consent
+where as_of_date = '2025-08-28'
+and cif_key = 9225166921 --1 cif punya rek loan only
+
+select * from ACL_DATALAKE.MART_LOAN
+where as_of_date = '2025-08-28'
+and cif_key = 9225166921*/
